@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-secret
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: demo-secret
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-secret
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+       maxSurge: 1
+       maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: demo-secret
+  template:
+    metadata:
+      labels:
+        app: demo-secret
+    spec:
+      containers:
+      - name: demo-secret
+        image: eaguerom/demo-secret
+        ports:
+        - containerPort: 8080
+        env:
+          - name: TEST_USER
+            valueFrom:
+              secretKeyRef:
+                name: dev-test-secrets
+                key: username
+          - name: TEST_PASS
+            valueFrom:
+              secretKeyRef:
+                name: dev-test-secrets
+                key: userpass

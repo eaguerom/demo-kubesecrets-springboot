@@ -1,0 +1,9 @@
+# Test comment
+server: 
+   port: 8080
+   servlet: 
+      context-path: /playground/
+
+test:
+   user: ${TEST_USER}
+   pass: ${TEST_PASS}
