@@ -23,7 +23,7 @@ Prerequisitos
 - Ver la estructura del secret `kubectl get secret dev-test-secrets -o yaml`
 Resultado:
 
-`apiVersion: v1
+```apiVersion: v1
 data:
   username: ZGV2dXNlcmt1YmU=
   userpass: ZGV2cGFzc2t1YmU=
@@ -36,4 +36,4 @@ metadata:
   selfLink: /api/v1/namespaces/default/secrets/dev-test-secrets
   uid: 93729dc6-9748-4026-9f86-9972b3635194
 type: Opaque
-`
+```
