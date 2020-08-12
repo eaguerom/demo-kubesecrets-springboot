@@ -21,8 +21,8 @@ Prerequisitos
 - Revisar los pods `kubectl get all`
 - describir los pods `kubectl describe pod/`
 - Ver la estructura del secret `kubectl get secret dev-test-secrets -o yaml`
-Resultado:
 
+Resultado:
 ```apiVersion: v1
 data:
   username: ZGV2dXNlcmt1YmU=
