@@ -12,7 +12,7 @@ Prerequisitos
 2. Crear los secretes `kubectl create secret generic dev-test-secrets --from-literal=username=devuserkube --from-literal=userpass=devpasskube`
 3. Ejecutar los comando de maven `mvn clean package`
 4. Crear la imagen de docker `docker build -t eaguerom/demo-secret .`
-5. Probar la imagen localmente: `docker run -p 8080:8080 -e TEST_USER=user-param -e TEST_PASS=pass-param demo-secret`
+5. Probar la imagen localmente: `docker run -p 8080:8080 -e TEST_USER=user-param -e TEST_PASS=pass-param demo-secret` (Esto no tiene que ver con k8s) es solo una prueba
 6. Subir la imagen a Docker hub `docker push eaguerom/demo-secret`
 7. Aplicar la imagen para crear el pod `kubectl apply -f demo.yaml`
 
